@@ -1,0 +1,147 @@
+<h1>Welcome to {{title}}</h1>
+<hr>
+<div>
+<h2>Decorator's Work:</h2>
+<ul>
+    <li>
+        <p style="font-size: larger;">OnClick Event and MouseOver Event.</p>
+    </li>
+    <li>
+        <p>OnClick Event added(using @hostlistener() decoractor) in order to check it click on any text. </p>
+    </li>
+    <li>
+        <p>MouseOver Event is Commented.</p>
+    </li>
+</ul>
+</div>
+<hr>
+<div>
+<h2>Component's Work:</h2>
+<button>Add</button> <button>Sub</button> <button>Mul</button> <button>Div</button>
+<ul>
+    <li>
+        <p>preservewhitespaces:true decoractor preserve all white spaces between controls as shown below:</p>
+    </li>
+    <button>Button 1</button> <button>Button 2</button> <button>Button 3</button>
+    <li>
+        <p>preservewhitespaces:flase do not preserve all white spaces between controls as shown below:</p>
+        <button>Button 1</button><button>Button 2</button><button>Button 3</button>
+    </li>
+</ul>
+</div>
+<hr>
+<div>
+    <h2>Directive's Work:</h2>
+    <h3 style="font-family: monospace;">This is the example of component directives.</h3>
+    <button (click)="btnclick()">Click Me</button>
+    <h3 style="font-family: monospace;">NgIf Works:</h3>
+    <div *ngIf="checkngIf">
+        This is NgIf Example
+    </div>
+    <ul>
+        <li>If the value of ngIf variable(In app-component.ts) is <strong>True</strong> it will show the data referring to that variable(In app-component.html).</li>
+        <li>If the value of ngIf variable(In app-component.ts) is <strong>False</strong> it will not show the data refers to that variable(In app-component.html). </li>
+    </ul>
+    <h3 style="font-family: monospace;">NgStyle Works:</h3>
+    <p [ngStyle]="{'color': 'blue','font-weight':'bold','font-family':'verdana'}">This is ngStyle Example.</p>
+</div>
+<hr>
+<div>
+    <h2>ngIf, else, then Work:</h2>
+    <p>ngIf, else, then are a part of directives.</p>
+    <p><strong>Note:</strong>ngIf example is Commented in order to check the working of ngIf else.</p>
+    <p><strong>Note:</strong>ngIf else example is Commented in order to check the working of ngIf then else.</p>
+    <!--<h3 style="font-family: monospace;">ngIf Example:</h3>
+    <input type="radio" name="radio1" (click)="changevalue(true)">True
+    <input type="radio" name="radio1" (click)="changevalue(false)">False
+    <div *ngIf="isvalid">
+        <p style="font-family: monospace; color: green;">This is Valid Data!</p>
+    </div>
+    <div *ngIf="!isvalid">
+        <p style="font-family: monospace; color: red;">This is Not Valid Data!</p>
+    </div>-->
+    <!--<h3 style="font-family: monospace;">ngIf with else Example:</h3>
+    <input type="radio" name="radio1" (click)="changevalue(true)">True
+    <input type="radio" name="radio1" (click)="changevalue(false)">False
+    elseblock is the name of varible it may varry and called after #(else part)
+    <div *ngIf="isvalid; else elseblock">
+        <p style="font-family: monospace; color: green;">This is Valid Data!</p>
+    </div>
+    <ng-template #elseblock>
+        <div>
+            <p style="font-family: monospace; color: red;">This is Not Valid Data using else block!</p>
+        </div>
+    </ng-template>-->
+    <h3 style="font-family: monospace;">ngIf with then and else Example:</h3>
+    <input type="radio" name="radio1" (click)="changevalue(true)">True
+    <input type="radio" name="radio1" (click)="changevalue(false)">False
+    <!--elseblock and thenblock is the name of varible it may varry and called after #(then part) and #(else part)-->
+    <div *ngIf="isvalid; then thenblock; else elseblock"></div>
+    <ng-template #thenblock>
+        <div>
+            <p style="font-family: monospace; color: green;">This is Valid Data using then block!</p>
+        </div>
+    </ng-template>
+    <ng-template #elseblock>
+        <div>
+            <p style="font-family: monospace; color: red;">This is Not Valid Data using else block!</p>
+        </div>
+    </ng-template>
+</div>
+<hr>
+<div>
+    <h2>ngSwitch Directive Work:</h2>
+    <select (change)="setvalue($event)">
+        <option value="">--Select--</option>
+        <option value="one">One</option>
+        <option value="two">Two</option>
+        <option value="three">Three</option>
+        <option value="another">Another</option>
+    </select>
+    <div [ngSwitch]="choose">
+        <h4 style="font-family: monospace; color: green;" *ngSwitchCase="'one'">First</h4>
+        <h4 style="font-family: monospace; color: green;" *ngSwitchCase="'two'">Second</h4>
+        <h4 style="font-family: monospace; color: green;" *ngSwitchCase="'three'">Third</h4>
+        <h4 style="font-family: monospace; color: green;" *ngSwitchDefault>Default</h4>
+    </div>
+</div>
+<hr>
+<div>
+    <h2>ngFor Directive Work:</h2>
+    <ul>
+        <li *ngFor="let student of Students">
+            {{student.name}}
+        </li>
+    </ul>
+    <h3 style="font-family: monospace;">ngIf Index Example:</h3>
+    <ul>
+        <li *ngFor="let student of Students; let i=index; let f=first; let l=last; let ev=even; let od=odd">
+            <!-- if we do add 1 to the value of i because index start with 0 and we want it to start with 1 so we do that {{i+1}}-->
+            {{i}} - {{student.name}} - {{f}} - {{l}} - {{ev}} - {{od}}
+        </li>
+    </ul>
+</div>
+<hr>
+<div>
+    <h2>TrackBy with ngFor work:</h2>
+    <table border="1">
+        <th>Index</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Course</th>
+        <tr *ngFor="let s of student; let i=index; TrackBy:trackbystudentid">
+            <td>{{i+1}}</td>
+            <td>{{s.studentid}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.gender}}</td>
+            <td>{{s.age}}</td>
+            <td>{{s.Course}}</td>
+        </tr>
+    </table>
+    <br/>
+    <button (click)="getmorestudents()">Get More Students</button>
+</div>
+
+

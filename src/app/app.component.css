@@ -1,0 +1,12 @@
+h1{
+    color: crimson;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2{
+    color: crimson;
+    font-family: 'Courier New', Courier, monospace;
+}
+ul,li,p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
